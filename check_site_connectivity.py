@@ -1,6 +1,9 @@
 from requests import get
+from win10toast import ToastNotifier
 import time
 import argparse
+
+toaster = ToastNotifier()
 url_pool = []
 parser = argparse.ArgumentParser()
 
@@ -20,5 +23,6 @@ while True:
 		print('Error occured :(')
 	else:
 		print('Success :)')
+		toaster.show_toast("Notification","your website is available")
 		break
 	time.sleep(args['interval'])
